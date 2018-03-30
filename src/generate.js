@@ -14,19 +14,27 @@ function copyFolderToSite(src, dest) {
   fs.copySync(path.resolve(__dirname, src), path.resolve(OUTPUT_DIR, dest));
 }
 
-const copyStyles = copyFolderToSite.bind(null, 'styles', 'styles');
+function copyStaticFolders() {
+  copyFolderToSite('assets', 'assets');
+  copyFolderToSite('css', 'css');
+}
 
 // expects the name to be in the form of page.pug
 function renderPugPage(pageName, locals = {}) {
-  let renderedHTML = pug.renderFile(path.resolve(__dirname, 'pages', pageName), Object.assign({pretty: true, locals}));
+  let renderedHTML = pug.renderFile(path.resolve(__dirname, 'pages', pageName), Object.assign({pretty: true}, locals));
   writeHTML2File(`${pageName.split('.')[0]}.html`, renderedHTML);
 }
 
 function generate() {
   fs.ensureDirSync(OUTPUT_DIR);
-  copyStyles();
 
-  renderPugPage('index.pug');
+  copyStaticFolders();
+
+  renderPugPage('index.pug', {currentPage: 'home'});
+  renderPugPage('rsvp.pug', {currentPage: 'rsvp'});
+  renderPugPage('location.pug', {currentPage: 'location'});
+  renderPugPage('registry.pug', {currentPage: 'registry'});
+
 }
 
 generate();
