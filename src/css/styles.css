@@ -97,7 +97,7 @@ img {
 }
 
 .intro {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .rw {
@@ -119,7 +119,7 @@ img {
 .invite {
   color: steelblue;
   font-family: 'Dancing Script', cursive;
-  font-size: 36px;
+  font-size: 42px;
 }
 
 .eventdate {
@@ -203,4 +203,14 @@ img {
   font-size: 36px;
   color: #888;
   font-family: 'Dancing Script', cursive;
+}
+
+.rsvp-form {
+  padding: 1em;
+  border-top: 2px solid darkgoldenrod;
+  box-shadow: 0px 1px 1px 1px #ccc;
+}
+
+.hidden-form {
+  display: none;
 }

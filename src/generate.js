@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs-extra');
 
 const OUTPUT_DIR = path.resolve(__dirname, '../_site');
+const guestlist = require('./data/guestlist.json');
 
 // All html written to $ROOT/_site
 function writeHTML2File(filename, html) {
@@ -17,6 +18,7 @@ function copyFolderToSite(src, dest) {
 function copyStaticFolders() {
   copyFolderToSite('assets', 'assets');
   copyFolderToSite('css', 'css');
+  copyFolderToSite('js', 'js');
 }
 
 // expects the name to be in the form of page.pug
@@ -31,7 +33,7 @@ function generate() {
   copyStaticFolders();
 
   renderPugPage('index.pug', {currentPage: 'home'});
-  renderPugPage('rsvp.pug', {currentPage: 'rsvp'});
+  renderPugPage('rsvp.pug', {currentPage: 'rsvp', guestlist});
   renderPugPage('location.pug', {currentPage: 'location'});
   renderPugPage('registry.pug', {currentPage: 'registry'});
 

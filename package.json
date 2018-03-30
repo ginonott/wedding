@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node ./src/generate",
-    "watch": "nodemon -e pug,css --watch ./src/pages --watch ./src/templates --watch ./src/css ./src/generate.js",
+    "watch": "nodemon -e pug,css,js,json --watch ./src/data --watch ./src/js --watch ./src/pages --watch ./src/templates --watch ./src/css ./src/generate.js",
     "serve": "http-server ./_site -c-1",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -5,7 +5,32 @@ block content
     .rsvp-header
       p Header Here
     .rsvp-form
-      iframe(class="rsvp-frame" src="https://docs.google.com/forms/d/e/1FAIpQLSdHjzJV7lE05QEgN06DbmGj-bQGIjoQKyOoD5-NG86V98uwHA/viewform?embedded=true" scrolling="yes" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0")
-        p Loading...
-    .rsvp-footer
-      p Footer Here
+      h2 Please RSVP
+      hr
+      form(name="rsvp" method="POST" netlify)
+        .form-group
+          label Tell us who you are
+          select(id="guestselect" name="guest").form-control
+            option(value=-1) Select Yourself From The List
+            option(value=-2) I Can't Find Myself In The List
+            each guest,index in guestlist.guests || []
+              option(value=index) #{guest.name}
+        .form-group(id="fallbackguest").hidden-form
+          label Can't find yourself above? Please type your name below
+          input(id="fallback" type="text" placeholder="Your name..." name="guest-fallback").form-control
+        .form-group(id="plusonegroup").hidden-form
+          label If you plan on bringing a plus one, please enter their name here
+          input(id="plusone" type="text" placeholder="Guest's Name" name="plusone").form-control
+        .form-group
+          label Have a song in mind? Enter it here!
+          textarea(rows="3" name="song_requests" placeholder="Your songs here...").form-control
+        .form-group
+          label If you have any dietary restrictions, please enter them here
+          textarea(rows="3" name="diet_restrictions" placeholder="I can't eat...").form-control
+
+        button(id="submit-button" disabled).rsvp-button.btn.btn-primary RSVP
+
+append javascripts
+  script window.guestlist = !{JSON.stringify(guestlist)};
+  script(src="/js/rsvp.js")
+

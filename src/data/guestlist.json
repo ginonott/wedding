@@ -1,0 +1,12 @@
+{
+  "guests": [
+    {
+      "name": "The Notto Family",
+      "hasPlusOne": false
+    },
+    {
+      "name": "Raina Duggirala",
+      "hasPlusOne": true
+    }
+  ]
+}
