@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "npm install && node ./src/generate",
+    "serve": "http-server ./_site -c-1",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +19,8 @@
   },
   "homepage": "https://github.com/ginonott/wedding#readme",
   "dependencies": {
+    "fs-extra": "^5.0.0",
+    "http-server": "^0.11.1",
     "pug": "^2.0.3"
   }
 }
