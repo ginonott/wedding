@@ -3,14 +3,14 @@ nav.navbar.navbar-expand-md.navbar-center.navbar-light.bg-light.mx-auto
     span.navbar-toggler-icon
   
   div(id="navbarSupportedContent").collapse.navbar-collapse
-    ul.navbar-nav.mr-auto
+    ul.navbar-nav.mx-auto
       if currentPage === 'home'
         li.nav-item.active
           a(href="/index").nav-link Home
             span.sr-only(current)
       else
         li.nav-item
-          a.nav-link(href="/index.html") Home
+          a.nav-link(href="/index") Home
       
       if currentPage === 'rsvp'
         li.nav-item.active
@@ -30,8 +30,8 @@ nav.navbar.navbar-expand-md.navbar-center.navbar-light.bg-light.mx-auto
 
       if currentPage === 'location'
         li.nav-item.active
-          a(href="/location").nav-link location
+          a(href="/location").nav-link Location
             span.sr-only(current)
       else
         li.nav-item
-          a.nav-link(href="/location") location
+          a.nav-link(href="/location") Location
