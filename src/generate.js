@@ -36,7 +36,7 @@ function generate() {
   renderPugPage('rsvp.pug', {currentPage: 'rsvp', guestlist});
   renderPugPage('location.pug', {currentPage: 'location'});
   renderPugPage('registry.pug', {currentPage: 'registry'});
-
+  renderPugPage('itinerary.pug', {currentPage: 'itinerary'});
 }
 
 generate();

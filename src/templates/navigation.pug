@@ -35,3 +35,11 @@ nav.navbar.navbar-expand-md.navbar-center.navbar-light.bg-light.mx-auto
       else
         li.nav-item
           a.nav-link(href="/location") Location
+
+      if currentPage === 'itinerary'
+        li.nav-item.active
+          a(href="/itinerary").nav-link Itinerary
+            span.sr-only(current)
+      else
+        li.nav-item
+          a.nav-link(href="/itinerary") Itinerary

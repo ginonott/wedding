@@ -243,3 +243,57 @@ img {
   margin-left: 1em;
   align-self: center;
 }
+
+.location-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.location-info {
+  flex: 2;
+}
+
+.location-map {
+  flex: 3;
+}
+
+.itinerary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 36px;
+  color: goldenrod;
+  border-bottom: 3px dotted steelblue;
+}
+
+.itinerary-table {
+  align-self: center;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.date-title {
+  align-self: left;
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.timeline-time {
+  flex: 1;
+}
+
+.timeline-detail {
+  flex: 3;
+}

@@ -1,4 +1,11 @@
 extends ../templates/base.pug
 
 block content
-  p Hello World!
+  img(src="/assets/hotelhenry.jpg").hero-image
+  hr
+  .location-container
+    .location-info
+      p Hotel Henry is located at #[a(href="https://goo.gl/maps/VFv2mDxGjto") 444 Forest Ave, Buffalo NY, 14213]. The entrance is off of Forest Ave. There will be a valet available.
+    .location-map
+      iframe(width="100%" height="400px" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJMWyVktgS04kRGG0mp51IZbc&key=AIzaSyAv0ucexY8k4A2cbm7k0mBRFV230ekIxPY" allowfullscreen)
+        span.fas.fa-spinner.fa-pulse
