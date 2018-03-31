@@ -7,7 +7,7 @@ block content
     .rsvp-form
       h2 Please RSVP
       hr
-      form(name="rsvp" method="POST" netlify)
+      div
         .form-group
           label Tell us who you are
           select(id="guestselect" name="guest").form-control
@@ -15,22 +15,39 @@ block content
             option(value=-2) I Can't Find Myself In The List
             each guest,index in guestlist.guests || []
               option(value=index) #{guest.name}
-        .form-group(id="fallbackguest").hidden-form
+        .form-group(id="fallbackguest").hidden
           label Can't find yourself above? Please type your name below
           input(id="fallback" type="text" placeholder="Your name..." name="guest-fallback").form-control
-        .form-group(id="plusonegroup").hidden-form
-          label If you plan on bringing a plus one, please enter their name here
-          input(id="plusone" type="text" placeholder="Guest's Name" name="plusone").form-control
+        hr
+        div(id="plusonegroup").hidden
+          .form-group.plus-one-group
+            input(id="accept-plus-one" type="checkbox")
+            label I plan to bring a +1
+          .form-group
+            label Please enter their name here
+            input(id="plusone" type="text" placeholder="Guest's Name" name="plusone" disabled=true).form-control
+          hr
+
         .form-group
           label Have a song in mind? Enter it here!
-          textarea(rows="3" name="song_requests" placeholder="Your songs here...").form-control
+          textarea(rows="3" id="song-requests" name="song_requests" placeholder="Your songs here...").form-control
         .form-group
-          label If you have any dietary restrictions, please enter them here
-          textarea(rows="3" name="diet_restrictions" placeholder="I can't eat...").form-control
+          span If you have any dietary restrictions, please enter them here
+          textarea(rows="3" id="diet-restrictions" name="diet_restrictions" placeholder="I can't eat...").form-control
 
-        button(id="submit-button" disabled).rsvp-button.btn.btn-primary RSVP
+        .submit-container
+          button(id="submit-button" disabled).rsvp-button.btn.btn-primary 
+            span RSVP
+            span= " "
+            span(id="rsvp-loader").fas.fa-spinner.fa-pulse.hidden
+          
+          span(id="error-message").error-message.hidden
+          span(id="success-message").success-message.hidden
+
 
 append javascripts
+  script(src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js")
+  script(src="https://www.gstatic.com/firebasejs/4.12.0/firebase-firestore.js")
   script window.guestlist = !{JSON.stringify(guestlist)};
   script(src="/js/rsvp.js")
 
