@@ -102,24 +102,24 @@ img {
 
 .rw {
   color: darkgoldenrod;
-  font-size: 48px;
+  font-size: 36px;
 }
 
 .and {
   color: steelblue;
-  font-size: 42px;
+  font-size: 24px;
   font-family: 'Dancing Script', cursive;
 }
 
 .gn {
   color: darkgoldenrod;
-  font-size: 48px;
+  font-size: 36px;
 }
 
 .invite {
   color: steelblue;
   font-family: 'Dancing Script', cursive;
-  font-size: 42px;
+  font-size: 24px;
 }
 
 .eventdate {
@@ -137,7 +137,7 @@ img {
   border-top: 2px solid darkgoldenrod;
   border-bottom: 2px solid darkgoldenrod;
   color: steelblue;
-  font-size: 42px;
+  font-size: 24px;
   align-self: center;
   margin-right: 1em;
 }
@@ -146,13 +146,13 @@ img {
   border-top: 2px solid darkgoldenrod;
   border-bottom: 2px solid darkgoldenrod;
   color: steelblue;
-  font-size: 42px;
+  font-size: 24px;
   align-self: center;
   margin-left: 1em;
 }
 
 .day {
-  font-size: 96px;
+  font-size: 82px;
   font-family: 'Raleway', sans-serif;
   color: f8f9fa;
   text-shadow:
@@ -165,12 +165,12 @@ img {
 .time {
   color: steelblue;
   font-family: 'Dancing Script', cursive;
-  font-size: 36px;
+  font-size: 24px;
   margin-bottom: 0.5em;
 }
 
 .place {
-  font-size: 36px;
+  font-size: 24px;
   color: steelblue;
 }
 
@@ -183,13 +183,13 @@ img {
 
 .street {
   margin-right: 0.5em;
-  font-size: 24px;
+  font-size: 18px;
   color: steelblue
 }
 
 .address {
   margin-left: 0.5em;
-  font-size: 24px;
+  font-size: 18px;
   color: steelblue;
 }
 
@@ -200,7 +200,7 @@ img {
 }
 
 .reception {
-  font-size: 32px;
+  font-size: 24px;
   color: #888;
   font-family: 'Dancing Script', cursive;
 }
