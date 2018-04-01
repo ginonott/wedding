@@ -18,6 +18,11 @@ body {
   vertical-align: text-top;
 }
 
+.nav-link:hover {
+  background-color: #FEECE9;
+  border-radius: 5px;
+}
+
 .active {
   background-color: rgb(254,226,221);
   border-radius: 5px;
@@ -261,7 +266,8 @@ img {
 .itinerary {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .timeline-title {
@@ -269,31 +275,38 @@ img {
   font-size: 36px;
   color: goldenrod;
   border-bottom: 3px dotted steelblue;
+  text-align: center;
+  margin-bottom: 1em;
 }
 
-.itinerary-table {
-  align-self: center;
-}
 
 .timeline {
   display: flex;
   flex-direction: column;
-  align-self: center;
+  align-items: flex-start;
+  margin-bottom: 1.5em;
 }
 
 .date-title {
-  align-self: left;
+  color: steelblue;
+  font-family: 'Dancing Script', cursive;
+  font-size: 24px;
 }
 
 .timeline-item {
   display: flex;
   flex-direction: row;
+  width: 100%;
+  margin-bottom: 0.5em;
 }
 
 .timeline-time {
-  flex: 1;
+  width: 18%;
+  margin-right: 2%;
+  border-right: 2px dashed steelblue;
+  font-weight: 600;
 }
 
 .timeline-detail {
-  flex: 3;
+  width: 80%;
 }
