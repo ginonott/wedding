@@ -3,9 +3,11 @@ extends ../templates/base.pug
 block content
   .rsvp
     .rsvp-header
-      p Header Here
+      p.
+        We request that you RSVP by [ ENTER DATE HERE ]. We look forward to your company on our special day. If you can't find yourself or your family in the list, 
+        please select "I can't find myself" to fill it out manually. If you have any difficulties, please contact us. Thank you!
     .rsvp-form
-      h2 Please RSVP
+      h2 RSVP
       hr
       div
         .form-group
@@ -15,6 +17,14 @@ block content
             option(value=-2) I Can't Find Myself In The List
             each guest,index in guestlist.guests || []
               option(value=index) #{guest.name}
+        .form-group(id="attending_group")
+          label Will you be attending?
+          br
+          input(type="radio" name="attending" id="yes" value="yes" checked)
+          label(for="yes") Yes
+          input(type="radio" name="attending" id="no" value="no")
+          label(for="no") No
+
         .form-group(id="fallbackguest").hidden
           label Can't find yourself above? Please type your name below
           input(id="fallback" type="text" placeholder="Your name..." name="guest-fallback").form-control

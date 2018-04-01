@@ -12,14 +12,6 @@ firebase.initializeApp(config);
 
 var db = firebase.firestore();
 
-db.collection("rsvp_list")
-  .get()
-  .then(querySnapshot => {
-    querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data()}`);
-    });
-  });
-
 function showSpinner() {
   document.getElementById('rsvp-loader').classList.remove('hidden');
 }
@@ -45,6 +37,14 @@ function disablePlusOneField() {
 function enablePlusOneField() {
   let plusoneInput = document.getElementById('plusone');
   plusoneInput.removeAttribute('disabled');
+}
+
+function disablePlusOneCB() {
+  document.getElementById('accept-plus-one').setAttribute('disabled', true);
+}
+
+function enablePlusOneCB() {
+  document.getElementById('accept-plus-one').removeAttribute('disabled');
 }
 
 function resetForm() {
@@ -118,7 +118,7 @@ function guestSelected(indx) {
     disablePlusOneField();
   }
 
-  document.getElementById('submit-button').removeAttribute('disabled');
+  enableSubmitButton();
 }
 
 function plusOneAccepted() {
@@ -135,10 +135,34 @@ function showErrorMessage(msg) {
     errSpan.innerHTML = msg;
 }
 
+function clearErrorMessage() {
+  document.getElementById('error-message').innerHTML = '';
+}
+
 function showSuccessMessage(msg) {
   let successSpan = document.getElementById('success-message');
   successSpan.classList.remove('hidden');
   successSpan.innerHTML = msg;
+}
+
+function noSelected() {
+  document.getElementById('song-requests').setAttribute('disabled', true);
+  document.getElementById('diet-restrictions').setAttribute('disabled', true);
+  disablePlusOneField();
+  disablePlusOneCB();
+}
+
+function yesSelected() {
+  document.getElementById('song-requests').removeAttribute('disabled');
+  document.getElementById('diet-restrictions').removeAttribute('disabled');
+  enablePlusOneField();
+  enablePlusOneCB();
+}
+
+function isAttending() {
+  let yesBox = document.getElementById('yes');
+
+  return yesBox.checked;
 }
 
 document.getElementById('guestselect').addEventListener('change', e => {
@@ -153,6 +177,7 @@ document.getElementById('guestselect').addEventListener('change', e => {
 });
 
 document.getElementById('submit-button').addEventListener('click', e => {
+  clearErrorMessage();
   showSpinner();
   disableSubmitButton();
 
@@ -162,6 +187,8 @@ document.getElementById('submit-button').addEventListener('click', e => {
     guest.plusOneName = "";
     guest.diet = getDietRestrictions();
     guest.songReq = getSongRequests();
+    guest.rsvped = new Date().toDateString();
+    guest.attending = isAttending() ? 'yes' : 'no';
 
     if (guest.hasPlusOne) {
       let plusOne = getPlusOne();
@@ -172,11 +199,15 @@ document.getElementById('submit-button').addEventListener('click', e => {
     }
 
     db.collection('rsvp_list')
-      .doc(guest.name)
+      .doc(`${guest.name} - ${new Date().toUTCString()}`)
       .set(guest)
       .then(success => {
         hideSpinner();
-        showSuccessMessage("🎉 You're all set! We can't wait to see you on the big day! 🎉");
+        if (isAttending()) {
+          showSuccessMessage("🎉 You're all set! We can't wait to see you on the big day! 🎉");
+        } else {
+          showSuccessMessage("We're sorry you can't make it! We hope to see you soon as the newly wed Notto family.");
+        }
       })
       .catch(err => {
         hideSpinner();
@@ -199,4 +230,12 @@ document.getElementById('accept-plus-one').addEventListener('click', e => {
   } else {
     plusOneDeclined();
   }
+});
+
+document.getElementById('yes').addEventListener('change', e => {
+  yesSelected();
+});
+
+document.getElementById('no').addEventListener('change', e => {
+  noSelected();
 });

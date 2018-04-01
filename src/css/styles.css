@@ -107,7 +107,7 @@ img {
 }
 
 .rw {
-  color: darkgoldenrod;
+  color: goldenrod;
   font-size: 36px;
 }
 
@@ -118,7 +118,7 @@ img {
 }
 
 .gn {
-  color: darkgoldenrod;
+  color: goldenrod;
   font-size: 36px;
 }
 
@@ -140,8 +140,8 @@ img {
 }
 
 .month {
-  border-top: 2px solid darkgoldenrod;
-  border-bottom: 2px solid darkgoldenrod;
+  border-top: 2px solid goldenrod;
+  border-bottom: 2px solid goldenrod;
   color: steelblue;
   font-size: 24px;
   align-self: center;
@@ -149,8 +149,8 @@ img {
 }
 
 .year {
-  border-top: 2px solid darkgoldenrod;
-  border-bottom: 2px solid darkgoldenrod;
+  border-top: 2px solid goldenrod;
+  border-bottom: 2px solid goldenrod;
   color: steelblue;
   font-size: 24px;
   align-self: center;
@@ -162,10 +162,10 @@ img {
   font-family: 'Raleway', sans-serif;
   color: f8f9fa;
   text-shadow:
-   -1px -1px 0 darkgoldenrod,  
-    1px -1px 0 darkgoldenrod,
-    -1px 1px 0 darkgoldenrod,
-     1px 1px 0 darkgoldenrod;
+   -1px -1px 0 goldenrod,  
+    1px -1px 0 goldenrod,
+    -1px 1px 0 goldenrod,
+     1px 1px 0 goldenrod;
 }
 
 .time {
@@ -200,7 +200,7 @@ img {
 }
 
 .address-divider {
-  color: darkgoldenrod;
+  color: goldenrod;
   align-self: center;
   font-size: 14px;
 }
@@ -213,7 +213,7 @@ img {
 
 .rsvp-form {
   padding: 1em;
-  border-top: 2px solid darkgoldenrod;
+  border-top: 2px solid goldenrod;
   box-shadow: 0px 1px 1px 1px #ccc;
 }
 
@@ -256,7 +256,9 @@ img {
 }
 
 .location-info {
-  flex: 2;
+  flex: 3;
+  margin-right: 10px;
+  border-right: 1px solid rgba(0,0,0,.1);
 }
 
 .location-map {
