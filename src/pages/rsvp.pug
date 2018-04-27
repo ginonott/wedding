@@ -15,7 +15,7 @@ block content
           select(id="guestselect" name="guest").form-control
             option(value=-1) Select Yourself From The List
             option(value=-2) I Can't Find Myself In The List
-            each guest,index in guestlist.guests.sort(function (a, b) { return a - b;}) || []
+            each guest,index in guestlist.guests.sort(function (a, b) { return a.name - b.name;}) || []
               option(value=index) #{guest.name}
         .form-group(id="attending_group")
           label Will you be attending?
