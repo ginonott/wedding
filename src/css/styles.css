@@ -312,3 +312,7 @@ img {
 .timeline-detail {
   width: 80%;
 }
+
+.attending-radio {
+  margin-right: 1em;
+}

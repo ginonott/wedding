@@ -23,7 +23,7 @@ function copyStaticFolders() {
 
 // expects the name to be in the form of page.pug
 function renderPugPage(pageName, locals = {}) {
-  let renderedHTML = pug.renderFile(path.resolve(__dirname, 'pages', pageName), Object.assign({pretty: true}, locals));
+  let renderedHTML = pug.renderFile(path.resolve(__dirname, 'pages', pageName), Object.assign({ pretty: true }, locals));
   writeHTML2File(`${pageName.split('.')[0]}.html`, renderedHTML);
 }
 
@@ -32,11 +32,21 @@ function generate() {
 
   copyStaticFolders();
 
-  renderPugPage('index.pug', {currentPage: 'home'});
-  renderPugPage('rsvp.pug', {currentPage: 'rsvp', guestlist});
-  renderPugPage('location.pug', {currentPage: 'location'});
-  renderPugPage('registry.pug', {currentPage: 'registry'});
-  renderPugPage('itinerary.pug', {currentPage: 'itinerary'});
+  guestlist.guests.sort(function (a, b) {
+    if (a.name < b.name) {
+      return -1;
+    } else if (a.name > b.name) {
+      return 1
+    } else {
+      return 0;
+    }
+  });
+
+  renderPugPage('index.pug', { currentPage: 'home' });
+  renderPugPage('rsvp.pug', { currentPage: 'rsvp', guestlist });
+  renderPugPage('location.pug', { currentPage: 'location' });
+  renderPugPage('registry.pug', { currentPage: 'registry' });
+  renderPugPage('itinerary.pug', { currentPage: 'itinerary', underConstruction: true });
 }
 
 generate();

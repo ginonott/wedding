@@ -85,7 +85,7 @@ function getPlusOne() {
     if (plusOneName.trim().length < 1) {
       throw new Error('You must enter your plus one\'s name!');
     }
-    
+
     return plusOneName;
   } else {
     return null;
@@ -98,6 +98,10 @@ function getSongRequests() {
 
 function getDietRestrictions() {
   return document.getElementById('diet-restrictions').value;
+}
+
+function getPartyRsvp() {
+  return document.getElementById('party_rsvp').value;
 }
 
 function cantFindMyself() {
@@ -131,8 +135,8 @@ function plusOneDeclined() {
 
 function showErrorMessage(msg) {
   let errSpan = document.getElementById('error-message');
-    errSpan.classList.remove('hidden');
-    errSpan.innerHTML = msg;
+  errSpan.classList.remove('hidden');
+  errSpan.innerHTML = msg;
 }
 
 function clearErrorMessage() {
@@ -148,6 +152,7 @@ function showSuccessMessage(msg) {
 function noSelected() {
   document.getElementById('song-requests').setAttribute('disabled', true);
   document.getElementById('diet-restrictions').setAttribute('disabled', true);
+  document.getElementById('party_rsvp').setAttribute('disabled', true);
   disablePlusOneField();
   disablePlusOneCB();
 }
@@ -155,6 +160,7 @@ function noSelected() {
 function yesSelected() {
   document.getElementById('song-requests').removeAttribute('disabled');
   document.getElementById('diet-restrictions').removeAttribute('disabled');
+  document.getElementById('party_rsvp').removeAttribute('disabled');
   enablePlusOneField();
   enablePlusOneCB();
 }
@@ -189,6 +195,7 @@ document.getElementById('submit-button').addEventListener('click', e => {
     guest.songReq = getSongRequests();
     guest.rsvped = new Date().toDateString();
     guest.attending = isAttending() ? 'yes' : 'no';
+    guest.partyRsvp = getPartyRsvp();
 
     if (guest.hasPlusOne) {
       let plusOne = getPlusOne();
@@ -219,13 +226,13 @@ document.getElementById('submit-button').addEventListener('click', e => {
     console.log(guest);
   } catch (err) {
     hideSpinner();
-    enableSubmitButton(); 
+    enableSubmitButton();
     showErrorMessage(err.message);
   }
 });
 
 document.getElementById('accept-plus-one').addEventListener('click', e => {
-  if(e.target.checked) {
+  if (e.target.checked) {
     plusOneAccepted();
   } else {
     plusOneDeclined();
