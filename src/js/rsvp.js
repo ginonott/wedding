@@ -108,7 +108,6 @@ function cantFindMyself() {
   resetForm();
 
   document.getElementById('fallbackguest').classList.remove('hidden');
-  document.getElementById('plusonegroup').classList.remove('hidden');
   enableSubmitButton();
 }
 
