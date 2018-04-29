@@ -4,14 +4,14 @@ block content
   .rsvp
     .rsvp-header
       p.
-        We request that you RSVP by [ ENTER DATE HERE ]. We look forward to your company on our special day. If you can't find yourself or your family in the list, 
-        please select "I can't find myself" to fill it out manually. If you have any difficulties, please contact us. Thank you!
+        We request that you RSVP by July 7th. Names are in alphabetical order by last name. If you can't find yourself or your family in the list, 
+        please select "I can't find myself." If you have any difficulties, please contact us. We look forward to your company on our special day! 
     .rsvp-form
       h2 RSVP
       hr
       div
         .form-group
-          label Tell us who you are
+          label Tell us who you are.
           select(id="guestselect" name="guest").form-control
             option(value=-1) Select Yourself From The List
             option(value=-2) I Can't Find Myself In The List
@@ -26,7 +26,7 @@ block content
           label(for="no") No
 
         .form-group(id="fallbackguest").hidden
-          label Can't find yourself above? Please type your name below
+          label Can't find yourself above? Please type your name below.
           input(id="fallback" type="text" placeholder="Your name..." name="guest-fallback").form-control
         hr
         div(id="plusonegroup").hidden
@@ -34,7 +34,7 @@ block content
             input(id="accept-plus-one" type="checkbox")
             label I plan to bring a +1
           .form-group
-            label Please enter their name here
+            label Please enter their name here.
             input(id="plusone" type="text" placeholder="Guest's Name" name="plusone" disabled=true).form-control
           hr
         .form-group
@@ -44,7 +44,7 @@ block content
           label Have a song in mind? Enter it here!
           textarea(rows="3" id="song-requests" name="song_requests" placeholder="Your songs here...").form-control
         .form-group
-          span If you have any dietary restrictions, please enter them here
+          span If you have any dietary restrictions, please enter them here.
           textarea(rows="3" id="diet-restrictions" name="diet_restrictions" placeholder="I can't eat...").form-control
 
         .submit-container
