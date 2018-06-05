@@ -1,0 +1,16 @@
+{
+    "short_name": "R&G Wedding",
+    "name": "Racheal and Gino's Weddomg",
+    "icons": [
+      {
+        "src": "/favicon.ico",
+        "type": "image/ico",
+        "sizes": "16x16"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#FEE2DD",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#FEE2DD"
+  }
