@@ -19,6 +19,7 @@ function copyStaticFolders() {
   copyFolderToSite('assets', 'assets');
   copyFolderToSite('css', 'css');
   copyFolderToSite('js', 'js');
+  copyFolderToSite('root', '');
 }
 
 // expects the name to be in the form of page.pug
@@ -46,7 +47,7 @@ function generate() {
   renderPugPage('rsvp.pug', { currentPage: 'rsvp', guestlist });
   renderPugPage('location.pug', { currentPage: 'location' });
   renderPugPage('registry.pug', { currentPage: 'registry' });
-  renderPugPage('itinerary.pug', { currentPage: 'itinerary', underConstruction: true });
+  renderPugPage('itinerary.pug', { currentPage: 'itinerary' });
 }
 
 generate();
