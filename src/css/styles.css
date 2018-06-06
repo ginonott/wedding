@@ -251,14 +251,23 @@ img {
 
 .location-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
+}
+
+@media (min-width: 992px) {
+  .location-container {
+    flex-direction: row;
+  }
+
+  .location-info {
+    margin-right: 10px;
+    border-right: 1px solid rgba(0,0,0,.1);
+  }
 }
 
 .location-info {
   flex: 3;
-  margin-right: 10px;
-  border-right: 1px solid rgba(0,0,0,.1);
 }
 
 .location-map {
