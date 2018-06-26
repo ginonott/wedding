@@ -7,6 +7,11 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+.nav-item {
+  margin: 0.5em;
+  padding: 0.2em;
+}
+
 .navbar-nav {
   flex: 1;
   justify-content: space-around;
@@ -18,7 +23,7 @@ body {
   vertical-align: text-top;
 }
 
-.nav-link:hover {
+.nav-item:hover {
   background-color: #FEECE9;
   border-radius: 5px;
 }
@@ -162,7 +167,7 @@ img {
   font-family: 'Raleway', sans-serif;
   color: f8f9fa;
   text-shadow:
-   -1px -1px 0 goldenrod,  
+   -1px -1px 0 goldenrod,
     1px -1px 0 goldenrod,
     -1px 1px 0 goldenrod,
      1px 1px 0 goldenrod;
