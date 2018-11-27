@@ -295,6 +295,12 @@ img {
   margin-bottom: 1em;
 }
 
+.thank-you-header {
+  font-family: 'Dancing Script', cursive;
+  font-size: 36px;
+  color: goldenrod;
+  margin-bottom: 1em;
+}
 
 .timeline {
   display: flex;

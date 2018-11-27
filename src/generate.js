@@ -44,6 +44,7 @@ function generate() {
   });
 
   renderPugPage('index.pug', { currentPage: 'home' });
+  renderPugPage('invitation.pug', { currentPage: 'invitation'})
   renderPugPage('rsvp.pug', { currentPage: 'rsvp', guestlist });
   renderPugPage('location.pug', { currentPage: 'location' });
   renderPugPage('registry.pug', { currentPage: 'registry' });

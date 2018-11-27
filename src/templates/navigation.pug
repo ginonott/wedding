@@ -1,7 +1,7 @@
 nav.navbar.navbar-expand-md.navbar-center.navbar-light.bg-light.mx-auto
   button(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation").navbar-toggler
     span.navbar-toggler-icon
-  
+
   div(id="navbarSupportedContent").collapse.navbar-collapse
     ul.navbar-nav.mx-auto
       if currentPage === 'home'
@@ -11,7 +11,15 @@ nav.navbar.navbar-expand-md.navbar-center.navbar-light.bg-light.mx-auto
       else
         li.nav-item
           a.nav-link(href="/index") Home
-      
+
+      if currentPage === 'invitation'
+        li.nav-item.active
+          a(href="/invitation").nav-link Invitation
+            span.sr-only(current)
+      else
+        li.nav-item
+          a.nav-link(href="/invitation") Invitation
+
       if currentPage === 'rsvp'
         li.nav-item.active
           a(href="/rsvp").nav-link RSVP
