@@ -1,9 +1,9 @@
-const pug = require('pug');
-const path = require('path');
-const fs = require('fs-extra');
+const pug = require("pug");
+const path = require("path");
+const fs = require("fs-extra");
 
-const OUTPUT_DIR = path.resolve(__dirname, '../_site');
-const guestlist = require('./data/guestlist.json');
+const OUTPUT_DIR = path.resolve(__dirname, "../docs");
+const guestlist = require("./data/guestlist.json");
 
 // All html written to $ROOT/_site
 function writeHTML2File(filename, html) {
@@ -16,16 +16,19 @@ function copyFolderToSite(src, dest) {
 }
 
 function copyStaticFolders() {
-  copyFolderToSite('assets', 'assets');
-  copyFolderToSite('css', 'css');
-  copyFolderToSite('js', 'js');
-  copyFolderToSite('root', '');
+  copyFolderToSite("assets", "assets");
+  copyFolderToSite("css", "css");
+  copyFolderToSite("js", "js");
+  copyFolderToSite("root", "");
 }
 
 // expects the name to be in the form of page.pug
 function renderPugPage(pageName, locals = {}) {
-  let renderedHTML = pug.renderFile(path.resolve(__dirname, 'pages', pageName), Object.assign({ pretty: true }, locals));
-  writeHTML2File(`${pageName.split('.')[0]}.html`, renderedHTML);
+  let renderedHTML = pug.renderFile(
+    path.resolve(__dirname, "pages", pageName),
+    Object.assign({ pretty: true }, locals)
+  );
+  writeHTML2File(`${pageName.split(".")[0]}.html`, renderedHTML);
 }
 
 function generate() {
@@ -37,18 +40,18 @@ function generate() {
     if (a.name < b.name) {
       return -1;
     } else if (a.name > b.name) {
-      return 1
+      return 1;
     } else {
       return 0;
     }
   });
 
-  renderPugPage('index.pug', { currentPage: 'home' });
-  renderPugPage('invitation.pug', { currentPage: 'invitation'})
-  renderPugPage('rsvp.pug', { currentPage: 'rsvp', guestlist });
-  renderPugPage('location.pug', { currentPage: 'location' });
-  renderPugPage('registry.pug', { currentPage: 'registry' });
-  renderPugPage('itinerary.pug', { currentPage: 'itinerary' });
+  renderPugPage("index.pug", { currentPage: "home" });
+  renderPugPage("invitation.pug", { currentPage: "invitation" });
+  renderPugPage("rsvp.pug", { currentPage: "rsvp", guestlist });
+  renderPugPage("location.pug", { currentPage: "location" });
+  renderPugPage("registry.pug", { currentPage: "registry" });
+  renderPugPage("itinerary.pug", { currentPage: "itinerary" });
 }
 
 generate();
